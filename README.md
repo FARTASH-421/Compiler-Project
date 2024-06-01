@@ -34,16 +34,15 @@ c %= 5;
 ## Comment
 ```
 1. single line comment
-      // Examples:
-            /* Comment */
+        // Comment.......
 
 2. multi line comment
-      // Examples:
-             /* Comment1
-                Comment2
-                Comment3
-                 ....
-             */
+
+      /* Comment1
+         Comment2
+         Comment3
+          ....
+      */
 
 ```
 
