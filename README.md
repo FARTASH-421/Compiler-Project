@@ -100,25 +100,6 @@ for ( i = 0; i < 10; i--) {
 
 ```
 
-## How to use?
-**1-** Install LLVM compiler on your computer (for step-by-step installation: [Persian](https://vrgl.ir/t9N3n))
-
-**2-** Run the makeBuild.sh by ``` ./makebuild.sh ``` or the below commands:
-```
-$ mkdir build
-$ cd build
-$ cmake ..
-$ make
-$ cd code
-$ ./MAS-Lang "int a;"
-```
-
-The results would be the IR code like this:
-
-![Screenshot](screenshot.png)
-
-In case of any issue or problem, let us know in the Issues section!
-
 
 
 
