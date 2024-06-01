@@ -1,0 +1,61 @@
+S -> Define S | Assign S | If S | Loop S | Define | Assign | If | Loop
+
+Define -> "int" Variables ";" | "bool" Variables |
+      "bool" Variable_1 "=" Values ";"
+	  "int" Variables "=" Values ";"
+
+
+Variables -> Id "," Variables | Id
+
+AssignOp -> "+=" | "-=" | "*=" | "/=" | "%=" | "="
+
+Values -> Expr "," Values | Expr
+
+Expr -> Expr "+" Term |
+        Expr "-" Term | Term
+
+Term -> Term "*" Power |
+        Term "%" Power |
+        Term "/" Power | Power
+
+Power -> Power "^" Factor | Factor
+
+Factor -> Id | Number | "(" Expr ")"
+
+Assign ->  Variables AssignOp Values ";"
+
+If -> "if" "(" Condition ")" "{" Statement "}" Elif Else |
+      "if" "(" Condition ")" "{" Statement "}" Elif |
+      "if" "(" Condition ")" "{" Statement "}" Else |
+      "if" "(" Condition ")" "{" Statement "}" |
+
+      "if" "(" Condition ")" "{" "}" Elif Else |
+      "if" "(" Condition ")" "{" "}" Else |
+      "if" "(" Condition ")" "{" "}" Elif |
+      "if" "(" Condition ")" "{" "}"
+
+Elif -> "else if" "(" Condition ")" "{" Statement "}" Elif |
+		"else if" "(" Condition ")" "{" Statement "}" |
+		"else if" "(" Condition ")" "{" "}" Elif |
+		"else if" "(" Condition ")" "{" "}"
+
+Else -> "else" "{" Statement "}" |
+		"else"
+
+
+Statement -> Assign Statement | If Statement | Loop Statement | Assign | If | Loop
+
+Condition -> Condition "and" SubCondition |
+	     Condition "or" SubCondition |  SubCondition
+
+SubCondition -> "True" | "False" | Expr | Expr Relational Expr |
+					  "(" Condition ")"
+
+Relational -> ">" | "<" | ">=" | "<=" | "==" | "!="
+
+Loop -> "while" "(" Condition ")" "{" Statement "}" |
+         "while" "(" Condition ")" "{" "}" |
+         "for" "(" Define ";" Condition ";" Variable "--" ")" "{" Statement "}" |
+         "for" "(" Define ";" Condition ";" Variable "--" ")" "{" "}" |
+         "for" "(" Define ";" Condition ";" Variable "+=" 2 ")" "{" Statement "}" |
+         "for" "(" Define ";" Condition ";" Variable "+=" 2 ")" "{" "}" |
